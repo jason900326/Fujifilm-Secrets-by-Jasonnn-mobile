@@ -1,0 +1,195 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle, #ffecd2 0%, #ffffff 100%);
+}
+
+.upload-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#photo-container {
+    display: none; /* 初始隱藏 */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin: 20px 0; /* 增加一些邊距以避免重疊 */
+    border: 1px solid transparent;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+#photo-canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#tab-container {
+    display: none; /* 初始隱藏 */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* 向上移動 */
+    background: transparent; /* 背景透明 */
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    transform: translateY(-20px); /* 向上移動，但不重疊photo container */
+    z-index: 1; /* 確保按鈕位於最前面 */
+}
+
+.tab-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    margin: 0 5px;
+}
+
+.tab-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.tab-content {
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: transparent; /* 背景透明 */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+.filter-previews {
+    display: flex;
+    flex-direction: row; /* 水平排列 */
+    gap: 10px;
+    overflow-x: auto; /* 水平滾動 */
+    padding: 10px;
+    max-width: 100%; /* 確保內容不超出container */
+    transform: translateY(-30px); /* 向上移動30px */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px; /* 確保每個濾鏡項目有足夠寬度 */
+    transform: translateY(-20px); /* 向上移動20px */
+}
+
+.filter img {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.filter img:hover {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+.filter span {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.controls {
+    justify-content: center;
+    transform: translateY(-10px); /* 向上移動10px */
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    margin-top: 30px; /* 向下移動 */
+}
+
+.btn-primary, .btn-secondary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 5px;
+    background: #007bff;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border-radius: 5px;
+    margin-top: 10px; /* 向下移動 */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border: 2px solid #007bff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border: 2px solid #007bff;
+    cursor: pointer;
+    border-radius: 50%;
+}
